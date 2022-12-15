@@ -1,6 +1,9 @@
 <template>
   <div>
-    <button-action> Action </button-action>
+    <button-action :eventName="'fff'" @fff="clickFff"> 
+      Удалить предмет
+    </button-action>
+
     <button-cancel> Cancel </button-cancel>
     <icon-button-close/>
     <input-number></input-number>
@@ -10,7 +13,16 @@
 
 <script lang="ts">
 export default ({
+  data() {
+    return {
 
+    }
+  },
+  methods:{
+    clickFff(e:boolean) {
+      console.log(e);
+    }
+  },
 })
 </script>
 
