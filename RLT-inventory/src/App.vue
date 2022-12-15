@@ -3,10 +3,10 @@
     <button-action :eventName="'fff'" @fff="clickFff"> 
       Удалить предмет
     </button-action>
-
-    <button-cancel> Cancel </button-cancel>
     <icon-button-close/>
-    <input-number></input-number>
+    <input-number
+      v-model:amount="amount"
+    ></input-number>
     <item-box></item-box>
   </div>
 </template>
@@ -15,12 +15,13 @@
 export default ({
   data() {
     return {
-
+      amount:0,
     }
   },
   methods:{
     clickFff(e:boolean) {
       console.log(e);
+      console.log(this.amount)
     }
   },
 })

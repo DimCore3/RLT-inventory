@@ -11,9 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
+export default ({
     name: 'button-action',
     props: {
         eventName: {
@@ -33,7 +31,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
+<style scoped>
     button {
         border-radius: 8px;
         border: none;
