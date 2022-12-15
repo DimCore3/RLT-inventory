@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        itemBox
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name:'icon-button-close',
+    name:'item-box',
     setup () {
         
 

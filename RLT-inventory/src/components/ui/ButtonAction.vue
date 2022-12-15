@@ -1,6 +1,6 @@
 <template>
     <button>
-
+        <slot></slot>
     </button>
 </template>
 
@@ -9,10 +9,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name:'button-action',
-    setup () {
-        
+    props: {
 
-        return {}
     }
 })
 </script>
