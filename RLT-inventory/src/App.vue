@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root-app">
     <button-action :eventName="'fff'" @fff="clickFff"> 
       Удалить предмет
     </button-action>
@@ -7,7 +7,15 @@
     <input-number
       v-model:amount="amount"
     ></input-number>
-    <item-box></item-box>
+    <item-box
+      :itemProperties="{
+        name: 'test-name',
+        describe: 'test-describe',
+        amount: 4, 
+        img: './',
+        id: '123321',
+      }"
+    ></item-box>
   </div>
 </template>
 
@@ -28,5 +36,7 @@ export default ({
 </script>
 
 <style scoped lang="scss">
-
+  .root-app {
+    background-color: #262626;
+  }
 </style>

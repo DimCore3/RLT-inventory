@@ -30,6 +30,8 @@ export default defineComponent ({
       border-radius: 4px;
       padding: 0px 12px;
       margin: 5px;
+      background-color: rgba($color: #000000, $alpha: 0.0);
+      color: white;
     };
 
     input::-webkit-outer-spin-button,
