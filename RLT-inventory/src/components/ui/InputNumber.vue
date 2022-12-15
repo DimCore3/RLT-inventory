@@ -7,10 +7,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name:'input-number',
-    setup () {
-        
+    props: {
 
-        return {}
     }
 })
 </script>

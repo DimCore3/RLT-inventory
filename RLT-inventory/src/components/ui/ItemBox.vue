@@ -9,10 +9,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name:'item-box',
-    setup () {
-        
+    props: {
 
-        return {}
     }
 })
 </script>

@@ -9,10 +9,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name:'icon-button-close',
-    setup () {
-        
+    props: {
 
-        return {}
     }
 })
 </script>

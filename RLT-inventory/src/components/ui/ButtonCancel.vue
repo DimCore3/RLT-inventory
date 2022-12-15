@@ -8,11 +8,9 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name:'button-cancel',
-    setup () {
-        
+    name: 'button-cancel',
+    props: {
 
-        return {}
     }
 })
 </script>
