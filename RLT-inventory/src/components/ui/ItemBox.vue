@@ -1,8 +1,13 @@
 <template>
     <div 
-        class="item-box" 
+        class="item-box"
+        draggable=true
+        @dragstart="dragstart"
+        @dragend="dragstarted = false"
+        :class="{dragstarted: dragstarted}"
         :id="itemProperties.id"
         @click="openModal"
+        v-on:click.stop
     >
         <img :src="itemProperties.img" :alt="itemProperties.name + ' image.'">
         <p class="items-amount">{{itemProperties.amount}}</p>
@@ -22,6 +27,11 @@ interface itemPropertiesType {
 
 export default defineComponent({
     name:'item-box',
+    data() {
+        return {
+            dragstarted: false,
+        }
+    },
     props: {
         itemProperties: {
             type: Object as PropType<itemPropertiesType>,
@@ -32,17 +42,37 @@ export default defineComponent({
         openModal() {
             console.log('open modal');
             this.$emit('openModal', this.itemProperties);
+        },
+        dragstart(e:any) {
+            
+            e.dataTransfer.effectAllowed = 'move';
+            // e.dataTransfer.setData('text/html', this.innerHTML);
+            console.log(e)
         }
     }
 })
 </script>
 
 <style scoped lang="scss">
+    .dragstarted {
+        border: 1px #4D4D4D solid;
+        border-radius: 12px;
+        opacity: 0.4px;
+        .items-amount {
+            border-bottom-right-radius: 12px;
+        }
+    }
     .item-box {
         height: 100px;
         width: 100px;
         color: #FFFFFF;
-        border: 1px #4D4D4D solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 48px;
+            width: 48px;
+        }
     }
 
     .item-box:hover {

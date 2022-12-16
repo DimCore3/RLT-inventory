@@ -24,6 +24,7 @@ export default defineComponent({
         border-radius: 12px;
         padding: 14px;
         margin: 12px;
+        background: #262626;
         input {
             border-radius: 8px;
             height: 36px;

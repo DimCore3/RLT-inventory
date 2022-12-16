@@ -33,6 +33,7 @@ export default defineComponent({
         flex-direction: column;
         align-items: center;
         padding: 18px 0;
+        background: #262626;
 
         img { 
             width: 200px;

@@ -68,6 +68,9 @@ export default defineComponent({
         left: 100%;
         bottom: 100%;
         border: 1px #4D4D4D solid;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        background: #262626;
 
         img {
             height: 130px;
