@@ -1,17 +1,9 @@
 <template>
   <div class="root-app">
-    <icon-button-close/>
-    <item-box
-      :itemProperties="{
-        name: 'test-name',
-        describe: 'test-describe',
-        amount: 4, 
-        img: './',
-        id: '123321',
-      }"
-    ></item-box>
-    <CharacterDescription/>
-    <InventoryField/>
+    <div class="character-profile">
+      <CharacterDescription/>
+      <InventoryField/>
+    </div>
     <BottomInput/>
   </div>
 </template>
@@ -33,6 +25,10 @@ export default ({
   .root-app {
     background-color: #262626;
     height: 660px;
-    width: 90%;
+    width: 800px;
+  }
+  .character-profile {
+    display: flex;
+    justify-content: space-around;
   }
 </style>

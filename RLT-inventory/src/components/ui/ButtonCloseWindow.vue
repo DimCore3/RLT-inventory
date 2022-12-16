@@ -24,6 +24,9 @@ export default ({
         color: white;
         text-align: center;
         font-size: smaller;
+        position: sticky;
+        left: 100%;
+        bottom: 100%;
     }
 
     button:hover {

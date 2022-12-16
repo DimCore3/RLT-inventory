@@ -1,10 +1,11 @@
 <template>
     <div class="modal-item-description">
         <icon-button-close
-            class="modal-exit"
             @closeWindow="closeWindow"
         />
-        <img src="" alt="">
+        <div>
+            <img src="" alt="">
+        </div>
         <hr>
         <div class="text-description">
             <h1> test </h1>
@@ -14,12 +15,13 @@
             <p> test test test </p>
         </div>
         <hr>
+        <div class="delete-item-button-box">
+            <button-action :eventName="'openBoxRemover'" @openBoxRemover="openBoxRemover" v-if="!isRemoverBoxOpen">
+                Удалить предмет
+            </button-action>
 
-        <button-action :eventName="'openBoxRemover'" @openBoxRemover="openBoxRemover" v-if="!isRemoverBoxOpen">
-            Удалить предмет
-        </button-action>
-
-        <SetAmountAndDelete @deleteItems="deleteItems" v-model:isRemoverBoxOpen='isRemoverBoxOpen' v-else />
+            <SetAmountAndDelete @deleteItems="deleteItems" v-model:isRemoverBoxOpen='isRemoverBoxOpen' v-else />
+        </div>
     </div>
 </template>
 
@@ -55,19 +57,17 @@ export default defineComponent({
 
 <style scoped lang="scss">
     .modal-item-description {
-        width: 250px;
-        height: 500px;
-        color: #4D4D4D;
+        width: 220px;
+        height: 470px;
         padding: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        .modal-exit {
-            position: sticky;
-            left: 100%;
-            bottom: 100%;
-        }
+        position: sticky;
+        left: 100%;
+        bottom: 100%;
+        border: 1px #4D4D4D solid;
 
         img {
             height: 130px;
@@ -78,11 +78,19 @@ export default defineComponent({
     .text-description {
         padding: 6px;
         margin-bottom: 14px;
+        height: 100%;
     };
 
     hr {
         border-bottom: #4D4D4D;
         width: 100%;
         margin-bottom: 16px;
+    }
+    .delete-item-button-box {
+        position: sticky;
+        top: 100%;
+        width: 100%;
+        align-items: center;
+        display: flex;
     }
 </style>
