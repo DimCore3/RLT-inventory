@@ -45,7 +45,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .box-remover {
-    background-color: rgb(97, 97, 97);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
