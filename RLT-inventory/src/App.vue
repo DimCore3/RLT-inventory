@@ -1,36 +1,22 @@
 <template>
   <div class="root-app">
-    <button-action :eventName="'fff'" @fff="clickFff"> 
-      Удалить предмет
-    </button-action>
-    <icon-button-close/>
-    <input-number
-      v-model:amount="amount"
-    ></input-number>
-    <item-box
-      :itemProperties="{
-        name: 'test-name',
-        describe: 'test-describe',
-        amount: 4, 
-        img: './',
-        id: '123321',
-      }"
-    ></item-box>
+    <div class="character-profile">
+      <CharacterDescription/>
+      <InventoryField/>
+    </div>
+    <BottomInput/>
   </div>
 </template>
 
 <script lang="ts">
+import BottomInput from './components/bottom-input/BottomInput.vue';
+import InventoryField from './components/inventory-field/InventoryField.vue'
+import CharacterDescription from './components/character-description/CharacterDescription.vue';
 export default ({
-  data() {
-    return {
-      amount:0,
-    }
-  },
-  methods:{
-    clickFff(e:boolean) {
-      console.log(e);
-      console.log(this.amount)
-    }
+  components: {
+    BottomInput,
+    InventoryField,
+    CharacterDescription,
   },
 })
 </script>
@@ -38,5 +24,11 @@ export default ({
 <style scoped lang="scss">
   .root-app {
     background-color: #262626;
+    height: 660px;
+    width: 800px;
+  }
+  .character-profile {
+    display: flex;
+    justify-content: space-around;
   }
 </style>
