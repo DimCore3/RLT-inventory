@@ -1,26 +1,30 @@
 <template>
     <div class="modal-item-description">
         <icon-button-close @closeWindow="closeWindow" />
-        <div>
-            <img :src="itemData.img" :alt="itemData.name + ' image'">
+        <div class="item-img-describe">
+            <item-img/>
+            <!-- <img :src="itemData.img" :alt="itemData.name + ' image'"> -->
         </div>
+        <strong> Колличество: {{itemData.amount}}</strong>
         <hr>
         <div class="text-description">
             <h1> {{itemData.name}} </h1>
             <p> {{itemData.describe}} </p>
         </div>
-        <hr>
-        <div class="delete-item-button-box">
-            <button-action :eventName="'openBoxRemover'" @openBoxRemover="openBoxRemover" v-if="!isRemoverBoxOpen">
-                Удалить предмет
-            </button-action>
+        <div class="delete-item-box">
+            <hr>
+            <div class="delete-item-button-box">
+                <button-action :eventName="'openBoxRemover'" @openBoxRemover="openBoxRemover" v-if="!isRemoverBoxOpen">
+                    Удалить предмет
+                </button-action>
 
-            <SetAmountAndDelete 
-                @deleteItems="deleteItems"
-                v-model:isRemoverBoxOpen='isRemoverBoxOpen'
-                :maxAmount="itemData.amount"
-                v-else 
-            />
+                <SetAmountAndDelete 
+                    @deleteItems="deleteItems"
+                    v-model:isRemoverBoxOpen='isRemoverBoxOpen'
+                    :maxAmount="itemData.amount"
+                    v-else 
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -83,13 +87,16 @@ export default ({
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     background: #262626;
-    opacity: 0.97;
-
-    img {
-        height: 130px;
+    opacity: 0.95;
+    transition: 1s linear;
+    strong {
+        color:rgb(116, 116, 116);
+    };
+    
+    .item-img-describe {
         width: 130px;
-        margin: 30px 0;
-    }
+        height: 130px;
+    };
 }
 
 ;
@@ -97,7 +104,7 @@ export default ({
 .text-description {
     padding: 6px;
     margin-bottom: 14px;
-    height: 100%;
+    height: 30%;
 }
 
 ;
@@ -108,11 +115,13 @@ hr {
     margin-bottom: 16px;
 }
 
-.delete-item-button-box {
+.delete-item-box {
     position: sticky;
     top: 100%;
     width: 100%;
-    align-items: center;
-    display: flex;
+    .delete-item-button-box {
+        display: flex;
+        align-items: center;
+    }
 }
 </style>

@@ -1,23 +1,24 @@
 <template>
     <div class="character-description">
-        <img src="./" alt="">
-        <h1> Hero </h1>
-        <p> test test test </p>
-        <p> test test test </p>
-        <p> test test test </p>
-        <p> test test test </p>
-        <p> test test test </p>
+        <img :src="character.img" alt="character image">
+        <h1> {{character.name}} </h1>
+        <p> {{character.description}} </p>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-    setup () {
-        
-
-        return {}
+interface characterType {
+    img: string,
+    name: string,
+    description: string,
+};
+import { PropType } from 'vue'
+export default ({
+    props: {
+        character: {
+            type: Object as PropType<characterType>,
+            required: true,
+        }
     }
 })
 </script>

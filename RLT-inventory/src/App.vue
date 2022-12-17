@@ -1,7 +1,7 @@
 <template>
   <div class="root-app">
     <div class="character-profile">
-      <CharacterDescription />
+      <CharacterDescription :character="fullData.character"/>
       <InventoryField :inventoryItems="fullData.items" @deleteItem="deleteItemFromArray" />
     </div>
     <BottomInput />
@@ -22,9 +22,9 @@ export default ({
     return {
       fullData: {
         character: {
-          img: './',
+          img: './src/assets/imgBlur.png',
           name: 'name',
-          description: 'test'
+          description: 'test test test test test test test test'
         },
         items: [
           {

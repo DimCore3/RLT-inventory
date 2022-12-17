@@ -9,12 +9,14 @@
         @click="openModal"
         v-on:click.stop
     >
-        <img :src="itemProperties.img" :alt="itemProperties.name + ' image.'">
+        <!-- <img :src="itemProperties.img" :alt="itemProperties.name + ' image.'"> -->
+        <item-img/>
         <p class="items-amount">{{itemProperties.amount}}</p>
     </div>
 </template>
 
 <script lang="ts">
+import { toNumber } from '@vue/shared';
 import { PropType } from 'vue'
 interface itemPropertiesType {
     name: string,
@@ -56,9 +58,9 @@ export default ({
 
 <style scoped lang="scss">
     .dragstarted {
-        border: 1px #4D4D4D solid;
         border-radius: 12px;
         opacity: 0.4px;
+        opacity: 0;
         .items-amount {
             border-bottom-right-radius: 12px;
         }
@@ -67,9 +69,7 @@ export default ({
         height: 100%;
         width: 100%;
         color: #FFFFFF;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
         img {
             height: 48px;
             width: 48px;
@@ -85,8 +85,8 @@ export default ({
         height: 16px;
         width: 16px;
         text-align: center;
-        position: sticky;
-        left: 100%;
-        top: 100%;
+        position: relative;
+        bottom: 17px;
+        left: 81px;
     }
 </style> 

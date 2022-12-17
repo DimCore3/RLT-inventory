@@ -1,10 +1,11 @@
 <template>
-    <div class="invetory-window">
+    <div class="invetory-window" @click="isModalOpen = true ? false : true">
         <div 
             class="inventory-field" 
             v-for="(itemData, index) in inventoryItems" 
             :id="'cont-' + index"
             :key="'cont-' + index"
+            :class="{isModalOpened:isModalOpen}"
         >
             <item-box 
                 v-if="JSON.stringify(itemData) != '{}'" 
@@ -16,8 +17,14 @@
             >
             </item-box>
         </div>
-        <ModalItemDescription v-if="isModalOpen" :itemData="modalData" @deleteItems="deleteItems"
-            @closeWindow="isModalOpen = false" />
+        <ModalItemDescription 
+            v-if="isModalOpen" 
+            :itemData="modalData" 
+            @click.stop
+            @deleteItems="deleteItems"
+            @closeWindow="isModalOpen = false"
+             
+        />
     </div>
 </template>
 
@@ -57,11 +64,9 @@ export default ({
             },
         }
     },
-    mounted() {
-    },
     methods: {
         openModal(itemData:itemPropsWithIndex) {
-            this.isModalOpen = true;
+            this.isModalOpen = !this.isModalOpen
             this.modalData = itemData.itemProperties;
             this.indexOpenedItem = itemData.index;
             console.log(this.modalData)
@@ -95,5 +100,9 @@ export default ({
     width: 99px;
     border-right: 1px #4D4D4D solid;
     border-bottom: 1px #4D4D4D solid;
+}
+
+.isModalOpened {
+    filter:blur(3px);
 }
 </style>
