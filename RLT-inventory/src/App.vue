@@ -2,7 +2,7 @@
   <div class="root-app">
     <div class="character-profile">
       <CharacterDescription />
-      <InventoryField :inventoryItems="fullData.items" />
+      <InventoryField :inventoryItems="fullData.items" @deleteItem="deleteItemFromArray" />
     </div>
     <BottomInput />
   </div>
@@ -35,21 +35,33 @@ export default ({
             id: '123321',
           },
           {
-            name: 'test-name',
-            describe: 'test-describe',
+            name: 'test-name-2',
+            describe: `test-describe 2
+test-describe 2
+test-describe 2
+test-describe 2
+test-describe 2`,
             amount: 2,
             img: './',
             id: '12333',
           },
           {
-            name: 'test-name',
-            describe: 'test-describe',
+            name: 'test-name-3',
+            describe: 'test-describe 3 test-describe 3 test-describe 3',
             amount: 5,
             img: './',
             id: '1442',
           },
           {},
-          {},
+          {
+            name: 'test-name-4',
+            describe: `test-describe 4
+test-describe 4
+test-describe 4`,
+            amount: 20,
+            img: './',
+            id: '1232',
+          },
           {},
           {},
         ]
@@ -68,8 +80,10 @@ export default ({
           this.fullData.items.push({});
         }
       }
-
-    }
+    },
+    deleteItemFromArray(index:number) {
+      this.fullData.items[index] = {};
+    },
   }
 })
 </script>

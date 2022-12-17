@@ -6,14 +6,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+export default ({
 
-export default defineComponent({
-    setup () {
-        
-
-        return {}
-    }
 })
 </script>
 
@@ -30,6 +24,9 @@ export default defineComponent({
             height: 36px;
             border: none;
             width: 90%;
+        }
+        button {
+            cursor:auto;
         }
     }
 </style>

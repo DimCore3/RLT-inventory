@@ -15,8 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-
+import { PropType } from 'vue'
 interface itemPropertiesType {
     name: string,
     describe: string,
@@ -24,8 +23,7 @@ interface itemPropertiesType {
     img: string,
     id: string,
 }
-
-export default defineComponent({
+export default ({
     name:'item-box',
     data() {
         return {
@@ -36,15 +34,18 @@ export default defineComponent({
         itemProperties: {
             type: Object as PropType<itemPropertiesType>,
             required: true,
+        },
+        index: {
+            type: Number,
+            required: true,
         }
     },
     methods: {
         openModal() {
-            console.log('open modal');
-            this.$emit('openModal', this.itemProperties);
+            this.$emit('openModal', {itemProperties: this.itemProperties, index:this.index});
         },
+        
         dragstart(e:any) {
-            
             e.dataTransfer.effectAllowed = 'move';
             // e.dataTransfer.setData('text/html', this.innerHTML);
             console.log(e)
@@ -63,8 +64,8 @@ export default defineComponent({
         }
     }
     .item-box {
-        height: 100px;
-        width: 100px;
+        height: 100%;
+        width: 100%;
         color: #FFFFFF;
         display: flex;
         justify-content: center;
